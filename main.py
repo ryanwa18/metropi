@@ -35,7 +35,7 @@ gfx = Metro_Graphics(display)
 refresh_display = None
 
 while True:
-    if (not refresh_display) or (time.monotonic() - refresh_display) > 300:
+    if (not refresh_display) or (time.monotonic() - refresh_display) > 60:
         request = requests.get(api_url, request_headers).json()
         gfx.display_metro(request)
         refresh_display = time.monotonic()
