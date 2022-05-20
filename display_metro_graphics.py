@@ -77,7 +77,7 @@ class Metro_Graphics:
         # Draw the time
         (font_width, font_height) = medium_font.getsize(self._time_text)
         draw.text(
-            (self.display.width - font_width - 5, 5),
+            (5, self.display.height - 55),
             self._time_text,
             font=self.medium_font,
             fill=BLACK,
@@ -88,6 +88,14 @@ class Metro_Graphics:
         draw.text(
             (5, 5),
             self._destination_name,
+            font=self.large_font,
+            fill=BLACK,
+        )
+
+        (font_width, font_height) = large_font.getsize(self._location_name)
+        draw.text(
+            (5, 30),
+            self._location_name,
             font=self.medium_font,
             fill=BLACK,
         )
@@ -95,21 +103,19 @@ class Metro_Graphics:
         # Draw the line
         (font_width, font_height) = large_font.getsize(self._line)
         draw.text(
-            (5, self.display.height - font_height * 4),
+            (5, self.display.height - 30),
             self._line,
             font=self.large_font,
             fill=BLACK,
         )
         
-        # Draw line break
-        draw.line([(0, self.display.height / 2), (self.display.width, self.display.height / 2)], BLACK, 1) 
          
         # Draw the arrival time
         (font_width, font_height) = large_font.getsize(self._arrival_minutes)
         draw.text(
             (
                 self.display.width - font_width - 5,
-                self.display.height - font_height * 4,
+                self.display.height - 30,
             ),
             self._arrival_minutes,
             font=self.large_font,
